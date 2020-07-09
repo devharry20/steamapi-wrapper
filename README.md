@@ -45,6 +45,6 @@ isteamuserstats.get_user_stats_for_game(steam_id, app_id)
 If you are using the exact same setup as the repository, you may need to add the following into your caller file in order to find the api file
 ```py
 import sys
-sys.append('../')
+sys.path.append('../')
 from steamapi.api import ISteamUser, ISteamUserStats
 ```
