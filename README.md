@@ -40,3 +40,11 @@ isteamuserstats.get_player_achievements(steam_id, app_id)
 isteamuserstats.get_schema_for_game(app_id)
 isteamuserstats.get_user_stats_for_game(steam_id, app_id)
 ```
+
+### Please Note
+If you are using the exact same setup as the repository, you may need to add the following into your caller file in order to find the api file
+```py
+import sys
+sys.append('../')
+from steamapi.api import ISteamUser, ISteamUserStats
+```
