@@ -13,7 +13,7 @@ https://partner.steamgames.com/doc/webapi/ISteamUserStats
 
 ### ISteamUser
 ```py
-from steamapi.api import ISteamUser
+from steamapi.isteamuser import ISteamUser
 
 API_KEY = 'api_key'
 
@@ -27,7 +27,7 @@ isteamuser.resolve_vanity_url('xxxxxxxxx')
 
 ### ISteamUserStats
 ```py
-from steamapi.api import ISteamUserStats
+from steamapi.isteamuserstats import ISteamUserStats
 
 API_KEY = 'api_key'
 
