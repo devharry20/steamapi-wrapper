@@ -13,7 +13,7 @@ https://partner.steamgames.com/doc/webapi/ISteamUserStats
 
 ### ISteamUser
 ```py
-from steamapi.isteamuser import ISteamUser
+from steamapi.api import ISteamUser
 
 API_KEY = 'api_key'
 
@@ -27,7 +27,7 @@ isteamuser.resolve_vanity_url('xxxxxxxxx')
 
 ### ISteamUserStats
 ```py
-from steamapi.isteamuserstats import ISteamUserStats
+from steamapi.api import ISteamUserStats
 
 API_KEY = 'api_key'
 
@@ -46,6 +46,5 @@ If you are using the exact same setup as the repository, you may need to add the
 ```py
 import sys
 sys.path.append('..')
-from steamapi.isteamuser import ISteamUser
-from steamapi.isteamuserstats import ISteamUserStats
+from steamapi.api import ISteamUser, ISteamUserStats
 ```
