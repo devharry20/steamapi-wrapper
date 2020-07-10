@@ -69,6 +69,11 @@ class IPlayerService:
     def __init__(self, **kwargs):
         self.api_key = kwargs.get('api_key')
 
+    def get_recently_played_games(self, steamid, count=1000):
+        recently_played = _apicall(f'http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key={self.api_key}&steamid={steamid}&count={count}')
+        
+        return recently_played
+
     def get_owned_games(self, steamid, args: list=None):
         if args is None:
             owned_games = _apicall(f'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={self.api_key}&steamid={steamid}')
@@ -81,12 +86,23 @@ class IPlayerService:
 
         return owned_games
 
-    def get_recently_played_games(self, steamid, count=1000):
-        recently_played = _apicall(f'http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key={self.api_key}&steamid={steamid}&count={count}')
-        
-        return recently_played
+    def get_steam_level(self, steamid):
+        steam_level = _apicall(f'https://api.steampowered.com/IPlayerService/GetSteamLevel/v1/?key={self.api_key}&steamid={steamid}')
+
+        return steam_level
+
+    def get_badges(self, steamid):
+        badges = _apicall(f'https://api.steampowered.com/IPlayerService/GetBadges/v1/?key={self.api_key}&steamid={steamid}')
+
+        return badges
+
+    def get_community_badge_progress(self, steamid, badgeid):
+        badge_progress = _apicall(f'https://api.steampowered.com/IPlayerService/GetCommunityBadgeProgress/v1/?key={self.api_key}&steamid={steamid}&badgeid={badgeid}')
+
+        return badge_progress
 
     def is_playing_shared_game(self, steamid, appid):
         playing_shared_game = _apicall(f'http://api.steampowered.com/IPlayerService/IsPlayingSharedGame/v0001/?key={self.api_key}&steamid={steamid}&appid_playing={appid}')
 
         return playing_shared_game
+
