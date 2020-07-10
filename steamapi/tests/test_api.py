@@ -80,14 +80,32 @@ class ISteamUserStats_Test(unittest.TestCase):
 
 
 class IPlayerService_Test(unittest.TestCase):
+    def test_get_recently_played_games(self):
+        r = iplayerservice.get_recently_played_games(STEAM_ID)
+
+        self.assertIsInstance(r, dict)
+        time.sleep(2)
+
     def test_get_owned_games(self):
         r = iplayerservice.get_owned_games(STEAM_ID, ['include_appinfo', 'include_played_free_games'])
 
         self.assertIsInstance(r, dict)
         time.sleep(2)
 
-    def test_get_recently_played_games(self):
-        r = iplayerservice.get_recently_played_games(STEAM_ID)
+    def test_get_steam_level(self):
+        r = iplayerservice.get_steam_level(STEAM_ID)
+
+        self.assertIsInstance(r, dict)
+        time.sleep(2)
+
+    def test_get_badges(self):
+        r = iplayerservice.get_badges(STEAM_ID)
+
+        self.assertIsInstance(r, dict)
+        time.sleep(2)
+
+    def test_get_community_badge_progress(self):
+        r = iplayerservice.get_community_badge_progress(STEAM_ID, 1)
 
         self.assertIsInstance(r, dict)
         time.sleep(2)
