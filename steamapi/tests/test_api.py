@@ -7,7 +7,7 @@ from api import ISteamUser, ISteamUserStats
 
 STEAM_ID = 12345678910
 CSGO_APP_ID = 730
-API_KEY = '
+API_KEY = ''
 
 
 isteamuser = ISteamUser(api_key=API_KEY)
