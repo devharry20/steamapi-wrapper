@@ -5,7 +5,6 @@ class ISteamUser:
     def __init__(self, **kwargs):
         self.api_key = kwargs.get('api_key')
 
-
     def get_friend_list(self, steamid):
         friend_list = _apicall(f'https://api.steampowered.com/ISteamUser/GetFriendList/v1/?key={self.api_key}&steamid={steamid}')
 
@@ -29,6 +28,7 @@ class ISteamUser:
         resolved_player = _apicall(f'https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key={self.api_key}&vanityurl={vanity}')
 
         return resolved_player
+
 
 class ISteamUserStats:
     def __init__(self, **kwargs):
@@ -64,3 +64,29 @@ class ISteamUserStats:
 
         return user_stats
 
+
+class IPlayerService:
+    def __init__(self, **kwargs):
+        self.api_key = kwargs.get('api_key')
+
+    def get_owned_games(self, steamid, args: list=None):
+        if args is None:
+            owned_games = _apicall(f'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={self.api_key}&steamid={steamid}')
+            return owned_games
+
+        additional_args = [x for x in args if x in ['include_appinfo', 'include_played_free_games']]
+        url_join = ''.join([f'&{x}=True' for x in additional_args])
+
+        owned_games = _apicall(f'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={self.api_key}&steamid={steamid}{url_join}')
+
+        return owned_games
+
+    def get_recently_played_games(self, steamid, count=1000):
+        recently_played = _apicall(f'http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key={self.api_key}&steamid={steamid}&count={count}')
+        
+        return recently_played
+
+    def is_playing_shared_game(self, steamid, appid):
+        playing_shared_game = _apicall(f'http://api.steampowered.com/IPlayerService/IsPlayingSharedGame/v0001/?key={self.api_key}&steamid={steamid}&appid_playing={appid}')
+
+        return playing_shared_game
