@@ -50,9 +50,12 @@ API_KEY = ''
 
 iplayerservice = IPlayerService(api_key=API_KEY)
 
-iplayerservice.get_owned_games(steamid, args)
-iplayerservice.get_recently_played_games(steamid, count)
-iplayerservice.is_playing_shared_game(steamid, appid)
+iplayerservice.get_recently_played_games(steam_id, count)
+iplayerservice.get_owned_games(steam_id, args)
+iplayerservice.get_steam_level(steam_id)
+iplayerservice.get_badges(steam_id)
+iplayerservice.get_community_badge_progress(steam_id, badge_id)
+iplayerservice.is_playing_shared_game(steam_id, app_id)
 ```
 
 ### Please Note
