@@ -9,7 +9,7 @@ Clone or download the repository
 
 ### For official documentation and api usage visit:
 https://partner.steamgames.com/doc/webapi/ISteamUser  
-https://partner.steamgames.com/doc/webapi/ISteamUserStats
+https://partner.steamgames.com/doc/webapi/ISteamUserStats  
 https://partner.steamgames.com/doc/webapi/IPlayerService
 
 ### ISteamUser
