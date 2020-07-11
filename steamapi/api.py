@@ -24,6 +24,11 @@ class ISteamUser:
 
         return player_summaries
 
+    def get_user_group_list(self, steamid):
+        user_groups = _apicall(f'https://api.steampowered.com/ISteamUser/GetUserGroupList/v1/?key={self.api_key}&steamid={steamid}')
+
+        return user_groups
+    
     def resolve_vanity_url(self, vanity):
         resolved_player = _apicall(f'https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key={self.api_key}&vanityurl={vanity}')
 
