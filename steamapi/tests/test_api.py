@@ -34,6 +34,12 @@ class ISteamUser_Test(unittest.TestCase):
         self.assertIsInstance(r, dict)
         time.sleep(2)
 
+    def test_get_user_group_list(self):
+        r = isteamuser.get_user_group_list(STEAM_ID)
+
+        self.assertIsInstance(r, dict)
+        time.sleep(2)
+        
     def test_resolve_vanity_url(self):
         r = isteamuser.resolve_vanity_url('xxxxxxxxx')
 
