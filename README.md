@@ -23,6 +23,7 @@ isteamuser = ISteamUser(api_key=API_KEY)
 isteamuser.get_friend_list(steam_id)
 isteamuser.get_player_bans(steam_id)
 isteamuser.get_player_summaries(steam_id)
+isteamuser.get_user_group_list(steam_id)
 isteamuser.resolve_vanity_url('xxxxxxxxx')
 ```
 
