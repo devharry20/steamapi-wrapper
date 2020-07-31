@@ -59,6 +59,17 @@ iplayerservice.get_community_badge_progress(steam_id, badge_id)
 iplayerservice.is_playing_shared_game(steam_id, app_id)
 ```
 
+### ISteamNews
+```py
+from steamapi.api import ISteamNews
+
+API_KEY = ''
+
+isteamnews = ISteamNews(api_key=API_KEY)
+
+isteamnews.get_news_for_app(app_id)
+```
+
 ### Please Note
 If you are using the exact same setup as the repository, you may need to add the following into your caller file in order to find the api file
 ```py
