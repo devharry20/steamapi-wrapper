@@ -111,3 +111,12 @@ class IPlayerService:
 
         return playing_shared_game
 
+    
+class ISteamNews:
+    def __init__(self, **kwargs):
+        self.api_key = kwargs.get('api_key')
+
+    def get_news_for_app(self, appid):
+        news = _apicall(f'http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002?key={self.api_key}&appid={appid}')
+
+        return news
