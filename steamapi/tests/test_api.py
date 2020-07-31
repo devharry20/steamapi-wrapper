@@ -13,6 +13,7 @@ API_KEY = '' # https://steamcommunity.com/dev/apikey
 isteamuser = ISteamUser(api_key=API_KEY)
 isteamuserstats = ISteamUserStats(api_key=API_KEY)
 iplayerservice = IPlayerService(api_key=API_KEY)
+isteamnews = ISteamNews(api_key=API_KEY)
 
 
 class ISteamUser_Test(unittest.TestCase):
@@ -122,13 +123,20 @@ class IPlayerService_Test(unittest.TestCase):
         self.assertIsInstance(r, dict)
         time.sleep(2)
 
+        
+class ISteamNews_Test(unittest.TestCase):
+    def get_news_for_app(self):
+        r = isteamnews.get_news_for_app(APP_ID)
 
+        self.assertIsInstance(r, dict)
+        time.sleep(2)
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(ISteamUser_Test))
     suite.addTest(unittest.makeSuite(ISteamUserStats_Test))
     suite.addTest(unittest.makeSuite(IPlayerService_Test))
+    suite.addTest(unittest.makeSuite(ISteamNews_Test))
 
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     sys.exit(len(result.errors) + len(result.failures))
