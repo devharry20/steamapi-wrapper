@@ -11,6 +11,7 @@ Clone or download the repository
 https://partner.steamgames.com/doc/webapi/ISteamUser  
 https://partner.steamgames.com/doc/webapi/ISteamUserStats  
 https://partner.steamgames.com/doc/webapi/IPlayerService
+https://partner.steamgames.com/doc/webapi/ISteamNews
 
 ### ISteamUser
 ```py
