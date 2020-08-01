@@ -75,5 +75,5 @@ If you are using the exact same setup as the repository, you may need to add the
 ```py
 import sys
 sys.path.append('..')
-from steamapi.api import ISteamUser, ISteamUserStats, IPlayerService
+from steamapi.api import ISteamUser, ISteamUserStats, IPlayerService, ISteamNews
 ```
