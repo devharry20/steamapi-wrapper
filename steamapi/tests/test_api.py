@@ -125,18 +125,31 @@ class IPlayerService_Test(unittest.TestCase):
 
         
 class ISteamNews_Test(unittest.TestCase):
-    def get_news_for_app(self):
+    def test_get_news_for_app(self):
         r = isteamnews.get_news_for_app(APP_ID)
 
         self.assertIsInstance(r, dict)
         time.sleep(2)
 
+
+class ICSGOServers_730_Test:
+    def __init__(self, **kwargs):   
+        self.api_key = kwargs.get('api_key') 
+    
+    @property
+    def test_get_game_servers_status(self):
+        status = _apicall(f'https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/?key={self.api_key}&appid=730')
+
+        return status
+        
+        
 if __name__ == '__main__':
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(ISteamUser_Test))
     suite.addTest(unittest.makeSuite(ISteamUserStats_Test))
     suite.addTest(unittest.makeSuite(IPlayerService_Test))
     suite.addTest(unittest.makeSuite(ISteamNews_Test))
+    suite.addTest(unittest.makeSuite(ICSGOServers_730_Test))
 
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     sys.exit(len(result.errors) + len(result.failures))
