@@ -120,3 +120,14 @@ class ISteamNews:
         news = _apicall(f'http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002?key={self.api_key}&appid={appid}')
 
         return news
+
+    
+class ICSGOServers_730:
+    def __init__(self, **kwargs):   
+        self.api_key = kwargs.get('api_key') 
+    
+    @property
+    def get_game_servers_status(self):
+        status = _apicall(f'https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/?key={self.api_key}&appid=730')
+
+        return status
