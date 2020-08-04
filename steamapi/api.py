@@ -148,7 +148,3 @@ class ICSGOServers_730:
         status = _apicall(f'https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/?key={self.api_key}&appid=730')
 
         return status
-
-
-isteamapps = ISteamApps()
-print(isteamapps.up_to_date_check(730, '1.5'))
