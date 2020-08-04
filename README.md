@@ -36,7 +36,7 @@ isteamuserstats = ISteamUserStats(api_key=apikey)
 
 isteamuserstats.get_global_chievement_percentages_for_app(appid)
 isteamuserstats.get_global_stats_for_game(appid, count, stats, startdate, enddate)
-isteamuserstats.get_number_of_current_players(APP_ID)
+isteamuserstats.get_number_of_current_players(appid)
 isteamuserstats.get_player_achievements(steamid, appid)
 isteamuserstats.get_schema_for_game(appid)
 isteamuserstats.get_user_stats_for_game(steamid, appid)
