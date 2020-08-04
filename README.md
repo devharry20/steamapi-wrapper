@@ -63,7 +63,7 @@ from steamapi.api import ISteamApps
 
 isteamapps = ISteamApps()
 
-isteamapps.get_app_list
+isteamapps.get_app_list()
 isteamapps.get_server_at_address(addr)
 isteamapps.up_to_date_check(appid, version)
 ```
@@ -83,7 +83,7 @@ from steamapi.api import ICSGOServers_730
 
 icsgoservers = ICSGOServers_730(api_key=apikey)
 
-icsgoservers.get_game_servers_status
+icsgoservers.get_game_servers_status()
 ```
 
 ### Please Note
