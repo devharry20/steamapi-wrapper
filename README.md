@@ -25,7 +25,7 @@ isteamuser.get_friend_list(steamid)
 isteamuser.get_player_bans(steamid)
 isteamuser.get_player_summaries(steamid)
 isteamuser.get_user_group_list(steamid)
-isteamuser.resolve_vanity_url('vanityid')
+isteamuser.resolve_vanity_url(vanityid)
 ```
 
 ### ISteamUserStats
