@@ -113,6 +113,7 @@ class IPlayerService:
 
 
 class ISteamApps:
+    @property
     def get_app_list(self):
         applist = _apicall('https://api.steampowered.com/ISteamApps/GetAppList/v2/')
 
