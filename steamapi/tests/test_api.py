@@ -3,7 +3,7 @@ import sys
 import time
 
 sys.path.append('..')
-from api import ISteamUser, ISteamUserStats, IPlayerService
+from api import ISteamUser, ISteamUserStats, IPlayerService, ISteamApps, ISteamNews, ICSGOServers_730,
 
 STEAM_ID = 12345678910
 APP_ID = 730
@@ -13,7 +13,9 @@ API_KEY = '' # https://steamcommunity.com/dev/apikey
 isteamuser = ISteamUser(api_key=API_KEY)
 isteamuserstats = ISteamUserStats(api_key=API_KEY)
 iplayerservice = IPlayerService(api_key=API_KEY)
+isteamapps = ISteamApps()
 isteamnews = ISteamNews(api_key=API_KEY)
+icsgoservers = ICSGOServers_730(api_key=API_KEY)
 
 
 class ISteamUser_Test(unittest.TestCase):
@@ -123,6 +125,26 @@ class IPlayerService_Test(unittest.TestCase):
         self.assertIsInstance(r, dict)
         time.sleep(2)
 
+
+class ISteamApps_Test(unittest.TestCase):
+    def test_get_app_list(self):
+        r = isteamapps.get_app_list()
+
+        self.assertIsInstance(r, dict)
+        time.sleep(2)
+
+    def test_get_server_at_address(self):
+        r = isteamapps.get_server_at_address('0.0.0.0')
+
+        self.assertIsInstance(r, dict)
+        time.sleep(2)
+
+    def test_up_to_date_check(self):
+        r = isteamapps.up_to_date_check(APP_ID, '1.5')
+
+        self.assertIsInstance(r, dict)
+        time.sleep(2)
+
         
 class ISteamNews_Test(unittest.TestCase):
     def test_get_news_for_app(self):
@@ -132,15 +154,12 @@ class ISteamNews_Test(unittest.TestCase):
         time.sleep(2)
 
 
-class ICSGOServers_730_Test:
-    def __init__(self, **kwargs):   
-        self.api_key = kwargs.get('api_key') 
-    
-    @property
+class ICSGOServers_730_Test(unittest.TestCase):    
     def test_get_game_servers_status(self):
-        status = _apicall(f'https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/?key={self.api_key}&appid=730')
+        r = icsgoservers.get_game_servers_status
 
-        return status
+        self.assertIsInstance(r, dict)
+        time.sleep(2)
         
         
 if __name__ == '__main__':
@@ -148,6 +167,7 @@ if __name__ == '__main__':
     suite.addTest(unittest.makeSuite(ISteamUser_Test))
     suite.addTest(unittest.makeSuite(ISteamUserStats_Test))
     suite.addTest(unittest.makeSuite(IPlayerService_Test))
+    suite.addTest(unittest.makeSuite(ISteamApps_Test))
     suite.addTest(unittest.makeSuite(ISteamNews_Test))
     suite.addTest(unittest.makeSuite(ICSGOServers_730_Test))
 
