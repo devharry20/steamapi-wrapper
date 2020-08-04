@@ -1,9 +1,10 @@
 ## About
 steamapi-wrapper is a simple api wrapper I made to make accessing several steam web api endpoints easier. This will most likely be updated whenever I need new endpoints to be reached. Here are the current supported api endpoints:
 
-* [ISteamUser](https://partner.steamgames.com/doc/webapi/ISteamUser  )
-* [ISteamUserStats](https://partner.steamgames.com/doc/webapi/ISteamUserStats  )
-* [IPlayerService](https://partner.steamgames.com/doc/webapi/IPlayerService  )
+* [ISteamUser](https://partner.steamgames.com/doc/webapi/ISteamUser)
+* [ISteamUserStats](https://partner.steamgames.com/doc/webapi/ISteamUserStats)
+* [IPlayerService](https://partner.steamgames.com/doc/webapi/IPlayerService)
+* [ISteamApps](https://partner.steamgames.com/doc/webapi/ISteamApps)
 * [ISteamNews](https://partner.steamgames.com/doc/webapi/ISteamNews)
 * ICSGOServers_730
 
@@ -56,6 +57,17 @@ iplayerservice.get_community_badge_progress(steamid, badgeid)
 iplayerservice.is_playing_shared_game(steamid, appid)
 ```
 
+### ISteamApps
+```py
+from steamapi.api import ISteamApps
+
+isteamapps = ISteamApps()
+
+isteamapps.get_app_list
+isteamapps.get_server_at_address(addr)
+isteamapps.up_to_date_check(appid, version)
+```
+
 ### ISteamNews
 ```py
 from steamapi.api import ISteamNews
@@ -63,6 +75,15 @@ from steamapi.api import ISteamNews
 isteamnews = ISteamNews(api_key=apikey)
 
 isteamnews.get_news_for_app(appid)
+```
+
+### ICSGOServers_730
+```py
+from steamapi.api import ICSGOServers_730
+
+icsgoservers = ICSGOServers_730(api_key=apikey)
+
+icsgoservers.get_game_servers_status
 ```
 
 ### Please Note
