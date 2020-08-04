@@ -111,6 +111,23 @@ class IPlayerService:
 
         return playing_shared_game
 
+
+class ISteamApps:
+    def get_app_list(self):
+        applist = _apicall('https://api.steampowered.com/ISteamApps/GetAppList/v2/')
+
+        return applist
+    
+    def get_server_at_address(self, addr):
+        server = _apicall(f'https://api.steampowered.com/ISteamApps/GetServersAtAddress/v1/?addr={addr}')
+
+        return server
+
+    def up_to_date_check(self, appid, version):
+        app = _apicall(f'https://api.steampowered.com/ISteamApps/UpToDateCheck/v1/?appid={appid}&version={version}')
+
+        return app
+
     
 class ISteamNews:
     def __init__(self, **kwargs):
@@ -131,3 +148,7 @@ class ICSGOServers_730:
         status = _apicall(f'https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/?key={self.api_key}&appid=730')
 
         return status
+
+
+isteamapps = ISteamApps()
+print(isteamapps.up_to_date_check(730, '1.5'))
