@@ -3,7 +3,7 @@ import sys
 import time
 
 sys.path.append('..')
-from api import ISteamUser, ISteamUserStats, IPlayerService, ISteamApps, ISteamNews, ICSGOServers_730,
+from api import ISteamUser, ISteamUserStats, IPlayerService, ISteamApps, ISteamNews, ICSGOServers_730
 
 STEAM_ID = 12345678910
 APP_ID = 730
