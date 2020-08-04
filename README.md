@@ -19,50 +19,50 @@ You are required to provide an api key to access most endpoints. Get your key fr
 ```py
 from steamapi.api import ISteamUser
 
-isteamuser = ISteamUser(api_key=API_KEY)
+isteamuser = ISteamUser(api_key=apikey)
 
-isteamuser.get_friend_list(STEAM_ID)
-isteamuser.get_player_bans(STEAM_ID)
-isteamuser.get_player_summaries(STEAM_ID)
-isteamuser.get_user_group_list(STEAM_ID)
-isteamuser.resolve_vanity_url('VANITY_ID')
+isteamuser.get_friend_list(steamid)
+isteamuser.get_player_bans(steamid)
+isteamuser.get_player_summaries(steamid)
+isteamuser.get_user_group_list(steamid)
+isteamuser.resolve_vanity_url('vanityid')
 ```
 
 ### ISteamUserStats
 ```py
 from steamapi.api import ISteamUserStats
 
-isteamuserstats = ISteamUserStats(api_key=API_KEY)
+isteamuserstats = ISteamUserStats(api_key=apikey)
 
-isteamuserstats.get_global_chievement_percentages_for_app(APP_ID)
-isteamuserstats.get_global_stats_for_game(APP_ID, COUNT, STATS, STARTDATE, ENDDATE)
+isteamuserstats.get_global_chievement_percentages_for_app(appid)
+isteamuserstats.get_global_stats_for_game(appid, count, stats, startdate, enddate)
 isteamuserstats.get_number_of_current_players(APP_ID)
-isteamuserstats.get_player_achievements(STEAM_ID, APP_ID)
-isteamuserstats.get_schema_for_game(APP_ID)
-isteamuserstats.get_user_stats_for_game(STEAM_ID, APP_ID)
+isteamuserstats.get_player_achievements(steamid, appid)
+isteamuserstats.get_schema_for_game(appid)
+isteamuserstats.get_user_stats_for_game(steamid, appid)
 ```
 
 ### IPlayerService
 ```py
 from steamapi.api import IPlayerService
 
-iplayerservice = IPlayerService(api_key=API_KEY)
+iplayerservice = IPlayerService(api_key=apikey)
 
-iplayerservice.get_recently_played_games(STEAM_ID, COUNT)
-iplayerservice.get_owned_games(STEAM_ID, ARGS) # args -> list containing "include_appinfo", "include_played_free_games" or both (not required)
-iplayerservice.get_steam_level(STEAM_ID)
-iplayerservice.get_badges(STEAM_ID)
-iplayerservice.get_community_badge_progress(STEAM_ID, BADGE_ID)
-iplayerservice.is_playing_shared_game(STEAM_ID, APP_ID)
+iplayerservice.get_recently_played_games(steamid, count)
+iplayerservice.get_owned_games(steamid, args) # args -> list containing "include_appinfo", "include_played_free_games" or both (not required)
+iplayerservice.get_steam_level(steamid)
+iplayerservice.get_badges(steamid)
+iplayerservice.get_community_badge_progress(steamid, badgeid)
+iplayerservice.is_playing_shared_game(steamid, appid)
 ```
 
 ### ISteamNews
 ```py
 from steamapi.api import ISteamNews
 
-isteamnews = ISteamNews(api_key=API_KEY)
+isteamnews = ISteamNews(api_key=apikey)
 
-isteamnews.get_news_for_app(APP_ID)
+isteamnews.get_news_for_app(appid)
 ```
 
 ### Please Note
