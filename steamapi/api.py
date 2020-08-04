@@ -113,7 +113,6 @@ class IPlayerService:
 
 
 class ISteamApps:
-    @property
     def get_app_list(self):
         applist = _apicall('https://api.steampowered.com/ISteamApps/GetAppList/v2/')
 
@@ -144,7 +143,6 @@ class ICSGOServers_730:
     def __init__(self, **kwargs):   
         self.api_key = kwargs.get('api_key') 
     
-    @property
     def get_game_servers_status(self):
         status = _apicall(f'https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/?key={self.api_key}&appid=730')
 
