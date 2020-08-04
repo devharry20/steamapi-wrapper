@@ -1,4 +1,4 @@
-# About
+## About
 steamapi-wrapper is a simple api wrapper I made to make accessing several steam web api endpoints easier. This will most likely be updated whenever I need new endpoints to be reached. Here are the current supported api endpoints:
 
 * [ISteamUser](https://partner.steamgames.com/doc/webapi/ISteamUser  )
@@ -7,14 +7,14 @@ steamapi-wrapper is a simple api wrapper I made to make accessing several steam 
 * [ISteamNews](https://partner.steamgames.com/doc/webapi/ISteamNews)
 * ICSGOServers_730
 
-# Installation
+## Install
 Clone or download the repository
 ```https://github.com/devharry20/steamapi-wrapper```
 
-# Api Key
-You will need an api key to acces several of the endpoints. Get your key from https://steamcommunity.com/dev/apikey
+## Authorisation
+You are required to provide an api key to access most endpoints. Get your key from https://steamcommunity.com/dev/apikey
 
-# Usage
+## Usage
 ### ISteamUser
 ```py
 from steamapi.api import ISteamUser
