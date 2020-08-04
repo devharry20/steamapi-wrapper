@@ -128,7 +128,7 @@ class IPlayerService_Test(unittest.TestCase):
 
 class ISteamApps_Test(unittest.TestCase):
     def test_get_app_list(self):
-        r = isteamapps.get_app_list()
+        r = isteamapps.get_app_list
 
         self.assertIsInstance(r, dict)
         time.sleep(2)
