@@ -12,7 +12,7 @@ steamapi-wrapper is a simple api wrapper I made to make accessing several steam 
 Clone or download the repository
 ```https://github.com/devharry20/steamapi-wrapper```
 
-## Authorisation
+## Authorization
 You are required to provide an api key to access most endpoints. Get your key from https://steamcommunity.com/dev/apikey
 
 ## Usage
